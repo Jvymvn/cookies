@@ -1,0 +1,265 @@
+/* ChatGPT Nested Conversations Extension Styles */
+
+/* Button & Form Styles */
+.nested-reply-container {
+  margin-top: 0.75rem;
+}
+
+.nested-reply-btn,
+.nested-followup-btn {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #10a37f; /* ChatGPT green */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nested-reply-btn:hover,
+.nested-followup-btn:hover {
+  color: #0e8e6c;
+}
+
+.nested-reply-icon,
+.nested-submit-icon {
+  height: 0.75rem;
+  width: 0.75rem;
+  margin-right: 0.25rem;
+}
+
+.nested-reply-form {
+  margin-top: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.nested-reply-form.hidden {
+  display: none;
+}
+
+.nested-reply-input-container {
+  position: relative;
+}
+
+.nested-reply-textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  resize: vertical;
+  min-height: 2.5rem;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nested-reply-textarea:focus {
+  outline: none;
+  border-color: #10a37f;
+  box-shadow: 0 0 0 1px #10a37f;
+}
+
+.nested-reply-submit {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #10a37f;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nested-reply-submit:hover {
+  color: #0e8e6c;
+}
+
+.nested-submit-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+/* Nested Response Area Styles */
+.nested-response-area {
+  margin-top: 0.75rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #e5e7eb;
+}
+
+.nested-section {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* User & Assistant Bubble Styles */
+.nested-user-bubble,
+.nested-assistant-bubble {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.nested-user-avatar,
+.nested-assistant-avatar {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.nested-user-avatar {
+  background-color: #9ca3af;
+  color: white;
+}
+
+.nested-assistant-avatar {
+  background-color: #10a37f;
+  color: white;
+}
+
+.nested-user-content,
+.nested-assistant-content {
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+.nested-user-content p,
+.nested-assistant-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.nested-user-question {
+  margin-bottom: 0.75rem;
+}
+
+.nested-assistant-response {
+  margin-bottom: 0.75rem;
+}
+
+/* Markdown Content Styles */
+.nested-markdown {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.nested-markdown p {
+  margin-bottom: 0.5rem;
+}
+
+.nested-markdown ul,
+.nested-markdown ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.nested-markdown li {
+  margin-bottom: 0.25rem;
+}
+
+.nested-markdown code {
+  font-family: monospace;
+  font-size: 0.875rem;
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.nested-markdown pre {
+  background-color: #f3f4f6;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+
+.nested-markdown h1,
+.nested-markdown h2,
+.nested-markdown h3,
+.nested-markdown h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Loading Animation */
+.nested-loading-dots {
+  display: flex;
+}
+
+.nested-loading-dots span {
+  font-size: 1.25rem;
+  line-height: 0.75;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: nestedLoading;
+}
+
+.nested-loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.nested-loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes nestedLoading {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Error Styles */
+.nested-error {
+  color: #ef4444;
+}
+
+.nested-error-details {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Followup Button Container */
+.nested-followup-container {
+  margin-top: 0.5rem;
+}
+
+/* Additional styles for nested levels */
+.nested-response-area .nested-response-area {
+  margin-left: 0.5rem;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .nested-reply-textarea {
+    background-color: #2d3748;
+    color: #f7fafc;
+    border-color: #4a5568;
+  }
+  
+  .nested-reply-textarea:focus {
+    border-color: #10a37f;
+  }
+  
+  .nested-markdown code {
+    background-color: #2d3748;
+  }
+  
+  .nested-markdown pre {
+    background-color: #2d3748;
+  }
+  
+  .nested-response-area {
+    border-left-color: #4a5568;
+  }
+}
